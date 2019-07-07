@@ -24,9 +24,9 @@ public class BeerController {
 		return "index";
 	}
 	
-	@RequestMapping(path="getFilm.do")
-	public String showFilm(@RequestParam("fid") Integer filmId, Model model) {
-		Beer beer = dao.findByName();
+	@RequestMapping(path="getBeer.do")
+	public String showFilm(@RequestParam("fid") Integer beerId, Model model) {
+		Beer beer = dao.findById(beerId);
 		model.addAttribute("beer", beer);
 		return "beer/show";
 	}

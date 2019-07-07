@@ -15,7 +15,7 @@
 	
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/someuser?useSSL=false" />
+				value="jdbc:mysql://localhost:3306/beerlist?useSSL=false" />
 			<property name="javax.persistence.jdbc.user" value="beeruser" />
 			<property name="javax.persistence.jdbc.password"
 				value="beeruser" />

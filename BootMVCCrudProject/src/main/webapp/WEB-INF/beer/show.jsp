@@ -8,8 +8,8 @@
 </head>
 <body>
 	<div>
-		<h5>${film.title}(${film.releaseYear})</h5>
-		<p>${film.description}</p>
+		<h5>${beer.name}(${beer.type})</h5>
+		<p>${beer.description}</p>
 	</div>
 </body>
 </html>

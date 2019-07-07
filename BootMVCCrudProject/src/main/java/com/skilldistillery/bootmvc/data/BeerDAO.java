@@ -8,6 +8,8 @@ public interface BeerDAO {
 	
 	List<Beer> findAll();
 	
-	Beer findByName();
+	Beer findById(int id);
+	
+	
 
 }

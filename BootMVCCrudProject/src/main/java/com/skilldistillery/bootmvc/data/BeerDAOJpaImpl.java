@@ -16,17 +16,19 @@ public class BeerDAOJpaImpl implements BeerDAO{
 	
 	@PersistenceContext
 	private EntityManager em;
+	
+	
 
 	@Override
 	public List<Beer> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String jpql ="SELECT b FROM Beer b";
+		List<Beer> beers = em.createQuery(jpql, Beer.class).getResultList();
+		return beers;
 	}
 
 	@Override
-	public Beer findByName() {
-		// TODO Auto-generated method stub
-		return null;
+	public Beer findById(int id) {
+		return em.find(Beer.class, id);
 	}
 
 }

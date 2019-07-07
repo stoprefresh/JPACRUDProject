@@ -9,14 +9,14 @@
 <title>Film Query</title>
 </head>
 <body>
-	<form action="getFilm.do" method="GET">
-		Film ID: <input type="text" name="fid" /> <input type="submit"
-			value="Show Film" />
+	<form action="getBeer.do" method="GET">
+		Beer ID: <input type="text" name="fid" /> <input type="submit"
+			value="Show Beer" />
 	</form>
 	<hr>
 	<ul>
-		<c:forEach var="f" items="${films}">
-			<li><a href="getFilm.do?fid=${f.id}">${f.title}</a></li>
+		<c:forEach var="b" items="${beers}">
+			<li><a href="getBeer.do?fid=${b.id}">${b.name}</a></li>
 		</c:forEach>
 
 
