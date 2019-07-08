@@ -16,7 +16,7 @@ title {text-align: center }
 <body>
 <h3>Update this Beer!</h3>
 <hr>
-<form action="getAdded.do" method="GET">
+<form action="getUpdated.do" method="GET">
 	    <input type="hidden" name="fid" value="${beer.id}"/>
 		<label for="name">Name:</label>
 		<input type="text" name="name" value="${beer.name}">
