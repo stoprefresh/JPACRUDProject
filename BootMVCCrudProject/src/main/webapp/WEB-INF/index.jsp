@@ -23,6 +23,19 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+a:link, a:visited {
+  background-color: #6699ff;
+  color: white;
+  padding: 4px 8px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+
 </style>
 </head>
 <body>
@@ -35,7 +48,7 @@ ul {
 		<input type="submit" value="Add One to the List" />
 	</form>
 	<hr>
-	<h3>Current Beer List:</h3>
+	<h3><u>Current Beer List:</u></h3>
 	<br>
 	<ul>
 		<c:forEach var="b" items="${beers}">

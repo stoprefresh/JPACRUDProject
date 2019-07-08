@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Add A Beer</title>
 <style>
-body {background-color: #6699ff; 
+body {background-color: #336699; 
 	  text-align: center;
 }
 title {text-align: center }
