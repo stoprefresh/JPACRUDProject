@@ -27,9 +27,9 @@ from the JSP pages to the Java logic portion of the code. Spring allows for the 
 
 ## Lessons Learned
 
-How to correctly implement a simple custom DB.
-File structure and formatt matters!!
-Routing JSP through request mapping and passing correct data between.
+ 1. How to correctly implement a simple custom DB.
+ 2. File structure and formatt matters!!
+ 3. Routing JSP through request mapping and passing correct data between.
 
 ## Contributing
 Needs work on GUI, any suggestions welcome.
