@@ -13,17 +13,17 @@ The Project is broken into two file structures. One entireley set as a Java/Grad
 for resource management and display pages. The logic for each of the pages is run through Controllers which set and pass data 
 from the JSP pages to the Java logic portion of the code. Spring allows for the remote access of the Entity that is used throughout.
 
-## Usage
+#### Usage
 
- +GitHub
- +Java
- +Spring Boot MVC
- +AWS
- +MySQL
- +Gradle
- +HTML
- +JSP
- +CSS
+ + GitHub
+ + Java
+ + Spring Boot MVC
+ + AWS
+ + MySQL
+ + Gradle
+ + HTML
+ + JSP
+ + CSS
 
 ## Lessons Learned
 
