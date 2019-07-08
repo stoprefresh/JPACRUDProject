@@ -32,14 +32,8 @@ public class BeerDAOJpaImpl implements BeerDAO {
 		return em.find(Beer.class, id);
 	}
 
-	public Beer getFilmByName(String someName) {
-		String query = "SELECT b from Beer b WHERE b.name LIKE :aName";
-
-		return em.createQuery(query, Beer.class).setParameter("aName", "%" + someName + "%").getResultList().get(0);
-	}
-	
 	@Override
-	public void deleteAddress(int id) {
+	public void deleteBeer(int id) {
 		em.remove(em.find(Beer.class, id));
 	}
 	
@@ -52,17 +46,16 @@ public class BeerDAOJpaImpl implements BeerDAO {
 	}
 	
 	@Override
-	public void update(int id) {
-
-		String query = "";
-
+	public Beer update(Beer b) {
+		Beer beer = em.find(Beer.class, b.getId());
 		
-
-		for (Beer b : em.createQuery(query, Beer.class).getResultList()) {
-
-		}
-		em.getTransaction().commit();
-
-		em.close();
+		beer.setName(b.getName());
+		beer.setType(b.getName());
+		beer.setAbv(b.getAbv());
+		beer.setBrewery(b.getBrewery());
+		beer.setDescription(b.getDescription());
+		beer.setNotes(b.getNotes());
+		
+		return beer;
 	}
 }

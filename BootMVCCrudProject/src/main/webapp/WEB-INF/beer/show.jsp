@@ -29,13 +29,13 @@ ul {
 		<h4>${beer.abv}%</h4>
 		<p>${beer.description}</p>
 	</div>
-	<form action="getBeer.do?fid=${b.id}" method="GET">
+	<form action="getHome.do" method="GET">
 		<input type="submit" value="Home" />
 	</form>
-	<form action="getBeer.do?fid=${b.id}" method="GET">
+	<form action="getBeerUpdate.do?fid=${b.id}" method="GET">
 		<input type="submit" value="Update" />
 	</form>
-	<form action="getHome.do" method="GET">
+	<form action="getBeer.do?fid=${b.id}" method="GET">
 		<input type="submit" value="Delete" />
 	</form>
 </body>

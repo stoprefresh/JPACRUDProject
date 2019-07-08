@@ -10,12 +10,10 @@ public interface BeerDAO {
 	
 	Beer findById(int id);
 
-	void deleteAddress(int id);
+	void deleteBeer(int id);
 
 	Beer addNewBeer(Beer adds);
 
-	void update();
-
-	void update(int id);
+	Beer update(Beer beer);
 	
 }
