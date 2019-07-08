@@ -14,13 +14,12 @@
 			value="Show Beer" />
 	</form>
 	<hr>
+	<h3>Current List:</h3>
+	<br>
 	<ul>
 		<c:forEach var="b" items="${beers}">
 			<li><a href="getBeer.do?fid=${b.id}">${b.name}</a></li>
 		</c:forEach>
-
-
 	</ul>
-
 </body>
 </html>

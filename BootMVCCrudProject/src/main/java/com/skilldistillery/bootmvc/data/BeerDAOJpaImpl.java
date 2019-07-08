@@ -17,8 +17,6 @@ public class BeerDAOJpaImpl implements BeerDAO{
 	@PersistenceContext
 	private EntityManager em;
 	
-	
-
 	@Override
 	public List<Beer> findAll() {
 		String jpql ="SELECT b FROM Beer b";
@@ -30,5 +28,4 @@ public class BeerDAOJpaImpl implements BeerDAO{
 	public Beer findById(int id) {
 		return em.find(Beer.class, id);
 	}
-
 }

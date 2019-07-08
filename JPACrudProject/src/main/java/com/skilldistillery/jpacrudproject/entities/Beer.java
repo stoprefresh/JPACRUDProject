@@ -15,16 +15,24 @@ public class Beer {
 	
 	private String name;
 	
-	private String brewery;
-		
 	private String type;
 	
+	private String brewery;
+	
+	@Column(name="abv")
+	private double alcoholByVolume;
+		
 	private String description;
 	
 	private String notes;
 	
-	@Column(name="abv")
-	private double alcoholByVolume;
+	
+	public Beer () {}
+	
+	public Beer(String ...info) {
+		setName(info[0]);
+		setType(info[1]);
+	}
 
 	public int getId() {
 		return id;
@@ -50,12 +58,12 @@ public class Beer {
 		this.brewery = brewery;
 	}
 
-	public String getTypeOf() {
+	public String getType() {
 		return type;
 	}
 
-	public void setTypeOf(String typeOf) {
-		this.type = typeOf;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getDescription() {

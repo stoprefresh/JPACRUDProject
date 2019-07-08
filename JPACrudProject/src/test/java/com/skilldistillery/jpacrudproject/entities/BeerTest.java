@@ -39,8 +39,10 @@ class BeerTest {
 	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void test_mappings() {
+		Beer b = em.find(Beer.class, 1);
+		assertEquals("Kentucky Brunch Brand Stout", b.getName());
+		assertEquals("American Imperial Stout", b.getType());
 	}
 
 }

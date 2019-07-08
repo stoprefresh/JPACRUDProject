@@ -30,5 +30,4 @@ public class BeerController {
 		model.addAttribute("beer", beer);
 		return "beer/show";
 	}
-
 }
