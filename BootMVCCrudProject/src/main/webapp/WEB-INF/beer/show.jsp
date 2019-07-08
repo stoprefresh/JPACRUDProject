@@ -8,7 +8,7 @@
 <title>Show Film</title>
 <style>
 body {
-	background-color: #6699ff;
+	background-color: #336699;
 	text-align: center;
 }
 
@@ -25,10 +25,10 @@ ul {
 </head>
 <body>
 	<div>
-		<h2>${beer.name}(${beer.type})</h2>
+		<h2><u>${beer.name}(${beer.type})</u></h2>
 		<h3>${beer.brewery}</h3>
 		<h4>${beer.abv}%</h4>
-		<h5>Description</h5>
+		<h5><u>Description:</u></h5>
 		<p>${beer.description}</p>
 		<br>
 		<p>${beer.notes}</p>
