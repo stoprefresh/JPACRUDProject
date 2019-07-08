@@ -14,6 +14,8 @@ title {text-align: center }
 </style>
 </head>
 <body>
+<h3>Add a Beer!</h3>
+<hr>
 <form action="getAdded.do" method="GET">
 		<label for="name">Name:</label>
 		<input type="text" name="name">
@@ -35,6 +37,9 @@ title {text-align: center }
 		<br>
 		<br>
 		<button type="submit" name=submit-btn>Add Beer</button>
+	</form>
+	<form action="getHome.do" method="GET">
+		<input type="submit" value="Home" />
 	</form>
 
 </body>

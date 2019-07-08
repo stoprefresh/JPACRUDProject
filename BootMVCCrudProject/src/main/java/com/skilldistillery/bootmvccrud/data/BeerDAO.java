@@ -14,6 +14,6 @@ public interface BeerDAO {
 
 	Beer addNewBeer(Beer adds);
 
-	Beer update(Beer beer);
+	Beer update(Integer id, Beer beer);
 	
 }

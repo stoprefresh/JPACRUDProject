@@ -46,8 +46,8 @@ public class BeerDAOJpaImpl implements BeerDAO {
 	}
 	
 	@Override
-	public Beer update(Beer b) {
-		Beer beer = em.find(Beer.class, b.getId());
+	public Beer update(Integer id, Beer b) {
+		Beer beer = em.find(Beer.class, id);
 		
 		beer.setName(b.getName());
 		beer.setType(b.getName());

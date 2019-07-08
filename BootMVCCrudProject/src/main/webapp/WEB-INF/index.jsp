@@ -27,15 +27,15 @@ ul {
 </head>
 <body>
 	<form action="getBeer.do" method="GET">
-		Beer ID: <input type="text" name="fid" /> <input type="submit"
-			value="Show Beer" />
+		Beer ID: <input type="text" name="fid" /> 
+		         <input type="submit" value="Show Beer" />
 	</form>
 	<hr>
 	<form action="getBeerAdd.do" method="GET">
 		<input type="submit" value="Add One to the List" />
 	</form>
 	<hr>
-	<h3>Current List:</h3>
+	<h3>Current Beer List:</h3>
 	<br>
 	<ul>
 		<c:forEach var="b" items="${beers}">

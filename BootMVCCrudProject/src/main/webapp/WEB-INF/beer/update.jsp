@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add A Beer</title>
+<title>Update Beer</title>
 <style>
 body {background-color: #6699ff; 
 	  text-align: center;
@@ -14,7 +14,10 @@ title {text-align: center }
 </style>
 </head>
 <body>
+<h3>Update this Beer!</h3>
+<hr>
 <form action="getAdded.do" method="GET">
+	    <input type="hidden" name="fid" value="${beer.id}"/>
 		<label for="name">Name:</label>
 		<input type="text" name="name" value="${beer.name}">
 		<br>
@@ -34,7 +37,10 @@ title {text-align: center }
 		<input type="text" name="notes" value="${beer.notes}">
 		<br>
 		<br>
-		<button type="submit" name=submit-btn>Add Beer</button>
+		<button type="submit" name=submit-btn>Update Beer</button>
+	</form>
+	<form action="getHome.do" method="GET">
+		<input type="submit" value="Home" />
 	</form>
 
 </body>
