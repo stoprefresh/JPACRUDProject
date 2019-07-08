@@ -10,7 +10,5 @@ public class BootMvcBeerListApp {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BootMvcBeerListApp.class, args);
-
 	}
-
 }

@@ -17,23 +17,15 @@ public class Beer {
 	
 	private String type;
 	
-	private String brewery;
-	
 	@Column(name="abv")
 	private double alcoholByVolume;
-		
+	
+	private String brewery;
+	
 	private String description;
 	
 	private String notes;
-	
-	
-	public Beer () {}
-	
-	public Beer(String ...info) {
-		setName(info[0]);
-		setType(info[1]);
-	}
-
+ 
 	public int getId() {
 		return id;
 	}

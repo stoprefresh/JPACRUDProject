@@ -1,4 +1,4 @@
-package com.skilldistillery.bootmvc.controllers;
+package com.skilldistillery.bootmvccrud.controllers;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.skilldistillery.bootmvc.data.BeerDAO;
+import com.skilldistillery.bootmvccrud.data.BeerDAO;
 import com.skilldistillery.jpacrudproject.entities.Beer;
 
 @Controller
@@ -25,9 +25,12 @@ public class BeerController {
 	}
 	
 	@RequestMapping(path="getBeer.do")
-	public String showFilm(@RequestParam("fid") Integer beerId, Model model) {
+	public String showBeer(@RequestParam("fid") Integer beerId, Model model) {
 		Beer beer = dao.findById(beerId);
 		model.addAttribute("beer", beer);
 		return "beer/show";
+		
+		
+		
 	}
 }

@@ -44,5 +44,12 @@ class BeerTest {
 		assertEquals("Kentucky Brunch Brand Stout", b.getName());
 		assertEquals("American Imperial Stout", b.getType());
 	}
+	
+	@Test
+	void more_tests() {
+		Beer b = em.find(Beer.class, 2);
+		assertEquals(11.00, b.getAlcoholByVolume());
+		
+	}
 
 }

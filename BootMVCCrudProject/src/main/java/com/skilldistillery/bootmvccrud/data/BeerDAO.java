@@ -1,4 +1,4 @@
-package com.skilldistillery.bootmvc.data;
+package com.skilldistillery.bootmvccrud.data;
 
 import java.util.List;
 
@@ -9,7 +9,4 @@ public interface BeerDAO {
 	List<Beer> findAll();
 	
 	Beer findById(int id);
-	
-	
-
 }
