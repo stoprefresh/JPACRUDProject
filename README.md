@@ -15,15 +15,15 @@ from the JSP pages to the Java logic portion of the code. Spring allows for the 
 
 ## Usage
 
-GitHub
-Java
-Spring Boot MVC
-AWS
-MySQL
-Gradle
-HTML
-JSP
-CSS
+*GitHub
+*Java
+*Spring Boot MVC
+*AWS
+*MySQL
+*Gradle
+*HTML
+*JSP
+*CSS
 
 ## Lessons Learned
 
