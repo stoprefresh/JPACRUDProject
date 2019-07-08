@@ -1,6 +1,5 @@
 package com.skilldistillery.jpacrudproject.entities;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,15 +16,41 @@ public class Beer {
 	
 	private String type;
 	
-	@Column(name="abv")
-	private double alcoholByVolume;
+	private double abv;
 	
 	private String brewery;
 	
 	private String description;
 	
 	private String notes;
- 
+	
+	public Beer() {}
+
+	public Beer(double abv, String ...info) {
+		setAbv(abv);
+		setName(info[0]);
+		setType(info[1]);
+		setBrewery(info[2]);
+		setDescription(info[3]);
+		setNotes(info[4]);
+		
+	}
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+
+	public double getAbv() {
+		return abv;
+	}
+
+	public void setAbv(double abv) {
+		this.abv = abv;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -75,11 +100,11 @@ public class Beer {
 	}
 
 	public double getAlcoholByVolume() {
-		return alcoholByVolume;
+		return abv;
 	}
 
 	public void setAlcoholByVolume(double alcoholByVolume) {
-		this.alcoholByVolume = alcoholByVolume;
+		this.abv = alcoholByVolume;
 	}
 	
 	@Override
@@ -88,7 +113,7 @@ public class Beer {
 		builder.append("Beer [id=").append(id).append(", name=").append(name).append(", brewery=").append(brewery)
 				.append(", type=").append(type).append(", description=")
 				.append(description).append(", notes=").append(notes).append(", alcoholByVolume=")
-				.append(alcoholByVolume).append("]");
+				.append(abv).append("]");
 		return builder.toString();
 	}
 
@@ -97,7 +122,7 @@ public class Beer {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(alcoholByVolume);
+		temp = Double.doubleToLongBits(abv);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((brewery == null) ? 0 : brewery.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
@@ -117,7 +142,7 @@ public class Beer {
 		if (getClass() != obj.getClass())
 			return false;
 		Beer other = (Beer) obj;
-		if (Double.doubleToLongBits(alcoholByVolume) != Double.doubleToLongBits(other.alcoholByVolume))
+		if (Double.doubleToLongBits(abv) != Double.doubleToLongBits(other.abv))
 			return false;
 		if (brewery == null) {
 			if (other.brewery != null)

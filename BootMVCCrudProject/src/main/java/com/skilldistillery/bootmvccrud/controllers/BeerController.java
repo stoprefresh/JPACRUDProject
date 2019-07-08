@@ -29,8 +29,29 @@ public class BeerController {
 		Beer beer = dao.findById(beerId);
 		model.addAttribute("beer", beer);
 		return "beer/show";
-		
-		
-		
 	}
+	
+	@RequestMapping(path="getAdded.do")
+	public String showNewBeer(@RequestParam("name") String name, @RequestParam("type") String type, @RequestParam("brewery") String brewery,
+			@RequestParam("description") String description, @RequestParam("notes") String notes, @RequestParam("abv") Double abv, Model model) {
+		
+		model.addAttribute("beer", dao.addNewBeer(new Beer(abv, name, type, brewery, description, notes)));
+		
+		return "beer/show";
+	}
+	
+	@RequestMapping(path="getBeerAdd.do")
+	public String addBeer(Model model) {
+		return "beer/add";
+	}
+	
+	@RequestMapping(path="getHome.do")
+	public String home(Model model) {
+		List<Beer> beers = dao.findAll();
+		model.addAttribute("beers", beers);
+		return "index";
+	}
+	
+	
+	
 }

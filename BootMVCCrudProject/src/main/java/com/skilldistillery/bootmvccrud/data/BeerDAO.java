@@ -9,4 +9,13 @@ public interface BeerDAO {
 	List<Beer> findAll();
 	
 	Beer findById(int id);
+
+	void deleteAddress(int id);
+
+	Beer addNewBeer(Beer adds);
+
+	void update();
+
+	void update(int id);
+	
 }
