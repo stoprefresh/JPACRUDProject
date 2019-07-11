@@ -64,7 +64,8 @@ public class BeerController {
 	@RequestMapping(path = "getBeerUpdate.do")
 	public String updateBeer(@RequestParam("fid") Integer beerId, Model model) {
 		model.addAttribute("beer", dao.findById(beerId));
-		return "beer/update";
+		return "beer/update"; 
+		
 	}
 
 	@RequestMapping(path = "getUpdated.do")
