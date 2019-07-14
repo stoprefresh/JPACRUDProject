@@ -5,13 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Beer</title>
-<style>
-body {background-color: #336699; 
-	  text-align: center;
-}
-title {text-align: center }
-
-</style>
+<link rel="stylesheet" href="/css/beer_styles.css">
 </head>
 <body>
 <h3>Update this Beer!</h3>

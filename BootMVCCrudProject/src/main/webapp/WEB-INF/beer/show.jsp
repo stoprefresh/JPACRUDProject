@@ -6,22 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Show Beer</title>
-<style>
-body {
-	background-color: #336699;
-	text-align: center;
-}
-
-title {
-	text-align: center
-}
-
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-</style>
+<link rel="stylesheet" href="/css/beer_styles.css">
 </head>
 <body>
 	<div>
