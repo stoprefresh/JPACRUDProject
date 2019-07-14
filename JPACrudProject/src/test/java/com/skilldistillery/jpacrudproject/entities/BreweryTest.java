@@ -13,12 +13,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class BeerTest {
+class BreweryTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Beer b;
-	
+	private Brewery br;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,34 +31,20 @@ class BeerTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		b = em.find(Beer.class, 1);
+		br = em.find(Brewery.class, 1);
 		em = emf.createEntityManager();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		b = null;
+		br = null;
 		em.close();
 	}
 
 	@Test
-	@DisplayName("Mapping for the Beer Class")
-	void test_mappings() {
-		assertEquals("Kentucky Brunch Brand Stout", b.getName());
-		assertEquals("American Imperial Stout", b.getType());
-	}
-	
-	@Test
-	@DisplayName("Checking another value in the Beer Class from DB")
-	void test_from_db_to_class() {
-		Beer b = em.find(Beer.class, 2);
-		assertEquals(11.00, b.getAlcoholByVolume());
-	}
-	
-	@Test
-	@DisplayName("Brewery Mapping Test")
-	void brewery_mapping_test() {
-		assertEquals("Russian River Brewing Co.", b.getBrewery().getName());
+	@DisplayName("DB to Entity Mapping")
+	void test_for_entity() {
+		assertEquals("Russian River Brewing Co.", br.getName());
 	}
 
 }

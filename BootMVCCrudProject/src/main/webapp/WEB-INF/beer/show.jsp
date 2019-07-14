@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Show Film</title>
+<title>Show Beer</title>
 <style>
 body {
 	background-color: #336699;
