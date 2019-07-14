@@ -20,7 +20,7 @@ public class BeerController {
 	@RequestMapping(path = "/")
 	public String index(Model model) {
 		
-		List<Beer> beers = dao.findAll();
+		List<Beer> beers = dao.findAllBeer();
 		model.addAttribute("beers", beers);
 		
 		return "index";
@@ -29,7 +29,7 @@ public class BeerController {
 	@RequestMapping(path = "getBeer.do")
 	public String showBeer(@RequestParam("fid") Integer beerId, Model model) {
 		
-		Beer beer = dao.findById(beerId);
+		Beer beer = dao.findBeerById(beerId);
 		model.addAttribute("beer", beer);
 		
 		return "beer/show";
@@ -54,7 +54,7 @@ public class BeerController {
 	@RequestMapping(path = "getHome.do")
 	public String home(Model model) {
 		
-		List<Beer> beers = dao.findAll();
+		List<Beer> beers = dao.findAllBeer();
 		model.addAttribute("beers", beers);
 		
 		return "index";
@@ -64,7 +64,7 @@ public class BeerController {
 	public String deleteBeer(@RequestParam("fid") Integer beerId, Model model) {
 		
 		dao.deleteBeer(beerId);
-		List<Beer> beers = dao.findAll();
+		List<Beer> beers = dao.findAllBeer();
 		model.addAttribute("beers", beers);
 		
 		return "index";
@@ -73,7 +73,7 @@ public class BeerController {
 	@RequestMapping(path = "getBeerUpdate.do")
 	public String updateBeer(@RequestParam("fid") Integer beerId, Model model) {
 		
-		model.addAttribute("beer", dao.findById(beerId));
+		model.addAttribute("beer", dao.findBeerById(beerId));
 
 		return "beer/update"; 
 		
@@ -84,7 +84,7 @@ public class BeerController {
 			@RequestParam("brewery") String brewery, @RequestParam("description") String description,
 			@RequestParam("notes") String notes, @RequestParam("abv") Double abv, Model model) {
 		
-		model.addAttribute("beer", dao.update(beerId, new Beer(abv, name, type, brewery, description, notes)));
+		model.addAttribute("beer", dao.updateBeer(beerId, new Beer(abv, name, type, brewery, description, notes)));
 
 		return "beer/show";
 	}

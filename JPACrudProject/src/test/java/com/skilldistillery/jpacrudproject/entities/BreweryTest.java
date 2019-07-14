@@ -46,5 +46,4 @@ class BreweryTest {
 	void test_for_entity() {
 		assertEquals("Russian River Brewing Co.", br.getName());
 	}
-
 }

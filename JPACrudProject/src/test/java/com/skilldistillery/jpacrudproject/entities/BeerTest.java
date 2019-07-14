@@ -17,9 +17,8 @@ class BeerTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Beer b;
 	
-
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("JPACrudProject");
@@ -32,19 +31,20 @@ class BeerTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		b = em.find(Beer.class, 1);
+		
 		em = emf.createEntityManager();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		b = null;
+		
 		em.close();
 	}
 
 	@Test
 	@DisplayName("Mapping for the Beer Class")
 	void test_mappings() {
+		Beer b = em.find(Beer.class, 1);
 		assertEquals("Kentucky Brunch Brand Stout", b.getName());
 		assertEquals("American Imperial Stout", b.getType());
 	}
@@ -59,7 +59,7 @@ class BeerTest {
 	@Test
 	@DisplayName("Brewery Mapping Test")
 	void brewery_mapping_test() {
-		assertEquals("Russian River Brewing Co.", b.getBrewery().getName());
+		Beer b = em.find(Beer.class, 1);
+		assertEquals("Toppling Goliath Brewing Co.", b.getBrewery().getName());
 	}
-
 }

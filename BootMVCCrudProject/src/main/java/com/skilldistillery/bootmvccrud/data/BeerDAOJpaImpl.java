@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpacrudproject.entities.Beer;
+import com.skilldistillery.jpacrudproject.entities.Brewery;
 
 @Service
 @Transactional
@@ -18,7 +19,7 @@ public class BeerDAOJpaImpl implements BeerDAO {
 	private EntityManager em;
 
 	@Override
-	public List<Beer> findAll() {
+	public List<Beer> findAllBeer() {
 		String jpql = "SELECT b FROM Beer b";
 		List<Beer> beers = em.createQuery(jpql, Beer.class).getResultList();
 		for (Beer beer : beers) {
@@ -28,7 +29,7 @@ public class BeerDAOJpaImpl implements BeerDAO {
 	}
 
 	@Override
-	public Beer findById(int id) {
+	public Beer findBeerById(int id) {
 		return em.find(Beer.class, id);
 	}
 
@@ -46,7 +47,7 @@ public class BeerDAOJpaImpl implements BeerDAO {
 	}
 	
 	@Override
-	public Beer update(Integer id, Beer b) {
+	public Beer updateBeer(Integer id, Beer b) {
 		Beer beer = em.find(Beer.class, id);
 		
 		beer.setName(b.getName());
@@ -57,5 +58,43 @@ public class BeerDAOJpaImpl implements BeerDAO {
 		beer.setNotes(b.getNotes());
 		
 		return beer;
+	}
+	
+	@Override
+	public List<Brewery> findAllBrewery() {
+		String jpql = "SELECT b FROM Beer b";
+		List<Brewery> breweries = em.createQuery(jpql, Brewery.class).getResultList();
+		for (Brewery brewery : breweries) {
+			System.out.println(brewery);
+		}
+		return breweries;
+	}
+
+	@Override
+	public Brewery findBreweryById(int id) {
+		return em.find(Brewery.class, id);
+	}
+	
+	@Override
+	public void deleteBrewery(int id) {
+		em.remove(em.find(Brewery.class, id));
+	}
+	
+	@Override
+	public Brewery addNewBrewery(Brewery newBrewery) {
+
+		em.persist(newBrewery);
+		
+		return newBrewery;
+	}
+	
+	@Override
+	public Brewery updateBrewery(Integer id, Brewery brewery) {
+		Brewery uBrewery = em.find(Brewery.class, id);
+		
+		uBrewery.setName(brewery.getName());
+		
+		
+		return uBrewery;
 	}
 }
