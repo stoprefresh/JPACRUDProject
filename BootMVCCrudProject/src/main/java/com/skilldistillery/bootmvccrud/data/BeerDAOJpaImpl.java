@@ -89,7 +89,7 @@ public class BeerDAOJpaImpl implements BeerDAO {
 	}
 
 	@Override
-	public Brewery updateBrewery(Integer id, Brewery brewery, Beer ...beer) {
+	public Brewery updateBrewery(Integer id, Brewery brewery) {
 		Brewery uBrewery = em.find(Brewery.class, id);
 
 		uBrewery.setName(brewery.getName());
@@ -100,9 +100,6 @@ public class BeerDAOJpaImpl implements BeerDAO {
 		uBrewery.setAddress(brewery.getAddress());
 		uBrewery.setNotes(brewery.getNotes());
 		uBrewery.setWebsite(brewery.getWebsite());
-		if(beer[0] != null) {
-			uBrewery.addBeer(beer[0]);
-		}
 
 		return uBrewery;
 	}

@@ -126,7 +126,7 @@ public class BeerController {
 	
 	@RequestMapping(path = "getBreweryUpdated.do")
 	public String displayUpdatedBrewery(@RequestParam("fid") Integer breweryId, @RequestParam("name") String name, @RequestParam("website") String website,
-			@RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("beer") Beer beer,
+			@RequestParam("city") String city, @RequestParam("state") String state, 
 			@RequestParam("yearEstablished") String yearEstablished, @RequestParam("notes") String notes, 
 			@RequestParam("country") String country, @RequestParam("address") String address, Model model) {
 		
