@@ -95,7 +95,8 @@ public class BeerController {
 		
 		dao.deleteBrewery(breweryId);
 		
-		model.addAttribute("brewery", dao.findAllBrewery());
+		model.addAttribute("breweries", dao.findAllBrewery());
+		
 		return "beer/breweryIndex";
 	}
 
