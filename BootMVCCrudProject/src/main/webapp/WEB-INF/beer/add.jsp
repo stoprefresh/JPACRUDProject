@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +9,12 @@
 
 <link rel="stylesheet" href="/css/beer_styles.css">
 
-
-
 </head>
 <body>
-<h3>Add a Beer!</h3>
+
 <hr>
+<div id="add" class= "add-body">
+<h3 id="add-header">Add a Beer!</h3>
 <form action="getAdded.do" method="GET">
 		<label for="name">Name:</label>
 		<input type="text" name="name">
@@ -24,6 +25,12 @@
 		<label for="abv">ABV:</label>
 		<input type="number" name="abv">
 		<br>
+		<label>Brewery:</label>
+		<select name="category">
+    		<c:forEach items="${listCategory}" var="category">
+        		<option value="${category.id}">${category.name}</option>
+   			</c:forEach>
+		</select>
 		<label for="brewery">Brewery:</label>
 		<input type="text" name="brewery">
 		<br>
@@ -39,6 +46,8 @@
 	<form action="getHome.do" method="GET">
 		<input type="submit" value="Home" />
 	</form>
+</div>
 
 </body>
+
 </html>

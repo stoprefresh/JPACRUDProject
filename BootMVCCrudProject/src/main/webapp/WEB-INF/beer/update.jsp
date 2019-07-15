@@ -10,6 +10,7 @@
 <body>
 <h3>Update this Beer!</h3>
 <hr>
+<div>
 <form action="getUpdated.do" method="GET">
 	    <input type="hidden" name="fid" value="${beer.id}"/>
 		<label for="name">Name:</label>
@@ -36,6 +37,6 @@
 	<form action="getHome.do" method="GET">
 		<input type="submit" value="Home" />
 	</form>
-
+</div>
 </body>
 </html>

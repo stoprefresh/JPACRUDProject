@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="/css/beer_styles.css">
 </head>
 <body>
+<div>
 	<div>
 		<h2><u>${beer.name}(${beer.type})</u></h2>
 		<h3>${beer.brewery}</h3>
@@ -29,5 +30,6 @@
 	    <input type="hidden" name="fid" value="${beer.id}"/>
 		<input type="submit" value="Delete" />
 	</form>
+	</div>
 </body>
 </html>

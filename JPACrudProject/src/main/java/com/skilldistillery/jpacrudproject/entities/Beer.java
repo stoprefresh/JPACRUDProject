@@ -38,7 +38,7 @@ public class Beer {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Beer [id=").append(id).append(", name=").append(name).append(", type=").append(type)
 				.append(", abv=").append(abv).append(", description=").append(description).append(", notes=")
-				.append(notes).append(", brewery=").append(brewery).append("]");
+				.append(notes).append(", brewery=").append(brewery.getName()).append("]");
 		return builder.toString();
 	}
 
