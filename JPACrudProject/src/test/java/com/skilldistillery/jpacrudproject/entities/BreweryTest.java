@@ -1,6 +1,7 @@
 package com.skilldistillery.jpacrudproject.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,7 +18,7 @@ class BreweryTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Brewery br;
+	
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,19 +32,28 @@ class BreweryTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		br = em.find(Brewery.class, 1);
+		
 		em = emf.createEntityManager();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		br = null;
+		
 		em.close();
 	}
 
 	@Test
 	@DisplayName("DB to Entity Mapping")
 	void test_for_entity() {
+		Brewery br = em.find(Brewery.class, 1);
 		assertEquals("Russian River Brewing Co.", br.getName());
+	}
+	
+	@Test
+	@DisplayName("Beer array mapping")
+	void test_for_size() {
+		Brewery br = em.find(Brewery.class, 1);
+		assertNotNull(br.getBeers());
+		assertEquals("Pliny The Elder", br.getBeers().get(1).getName());
 	}
 }

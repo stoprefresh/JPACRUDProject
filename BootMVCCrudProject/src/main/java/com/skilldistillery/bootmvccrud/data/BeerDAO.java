@@ -21,7 +21,7 @@ public interface BeerDAO {
 
 	Brewery addNewBrewery(Brewery adds);
 
-	Brewery updateBrewery(Integer id, Brewery beer);
+	Brewery updateBrewery(Integer id, Brewery brewery, Beer ...beer);
 
 	List<Brewery> findAllBrewery();
 
