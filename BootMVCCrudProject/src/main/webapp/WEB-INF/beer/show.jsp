@@ -9,17 +9,17 @@
 <link rel="stylesheet" href="/css/beer_styles.css">
 </head>
 <body>
-<div>
+<div id="main">
 	<div>
-		<h2><u>${beer.name}(${beer.type})</u></h2>
-		<h3>${beer.brewery}</h3>
-		<h4>${beer.abv}%</h4>
-		<h5><u>Description:</u></h5>
+		<h2>${beer.name}(${beer.type})</h2>
+		<h3><a href="${beer.brewery.website}"><span title="Linked">${beer.brewery.name}</span></a></h3>
+		<h4>Abv. ${beer.abv}%</h4>
+		<h5>Description:</h5>
 		<p>${beer.description}</p>
 		<br>
 		<p>${beer.notes}</p>
 	</div>
-	<form action="getHome.do" method="GET">
+	<form action="/" method="GET">
 		<input type="submit" value="Home" />
 	</form>
 	<form action="getBeerUpdate.do" method="GET">

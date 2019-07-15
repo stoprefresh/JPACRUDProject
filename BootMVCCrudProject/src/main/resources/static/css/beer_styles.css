@@ -67,7 +67,7 @@ label {
 	background: #706F74;
 	border-radius: 15px;
 	padding: 20px;
-	width: 200px;
+	width: auto;
 	height: auto;
 	opacity: 0.96;
 	padding: 20px;
@@ -76,4 +76,8 @@ label {
 	border-color: #A239CA;
 	border-style: solid;
 	border-width: 2px;
+}
+
+#databreak {
+	border-top: 1px solid #E7DDFD;
 }

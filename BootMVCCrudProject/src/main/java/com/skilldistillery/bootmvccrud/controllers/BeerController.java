@@ -49,6 +49,15 @@ public class BeerController {
 		
 		return "beer/show";
 	}
+	
+	@RequestMapping(path = "getBrewery.do")
+	public String showBrewery(@RequestParam("fid") Integer breweryId, Model model) {
+		
+		Brewery brewery = dao.findBreweryById(breweryId);
+		model.addAttribute("brewery", brewery);
+		
+		return "beer/showBrewery";
+	}
 
 	@RequestMapping(path = "getAdded.do")
 	public String showNewBeer(@RequestParam("name") String name, @RequestParam("type") String type,

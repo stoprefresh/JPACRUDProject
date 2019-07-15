@@ -12,9 +12,9 @@
 </head>
 <body>
 <br>
-	<div id="main" class="main-body">
+	<div id="main">
 	<h2>View and Search</h2>
-	<p>This is an application intended to record Beers and Breweries that I have found over the years</p>
+	<p>This is an application intended to record Beers and Breweries that I have found over the years and have really enjoyed</p>
 	<hr>
 		<form action="getBeerIndex.do" method="GET">
 			<input type="submit" value="View Listed Beers" />

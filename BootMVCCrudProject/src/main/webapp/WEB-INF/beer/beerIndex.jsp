@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>Beers</title>
@@ -12,20 +11,20 @@
 </head>
 <body>
 	<br>
-	<div id="main" class="main-body">
+	<div id="main">
 		<form action="getBeer.do" method="GET">
 			Beer ID: <input type="text" name="fid" /> <input type="submit"
 				value="Show Beer" />
 		</form>
 		<hr>
 		<form action="getBeerAdd.do" method="GET">
-			<input type="submit" value="Add One to the List" />
+			<input type="submit" value="Add A Beer" />
 		</form>
 		<hr>
 		<form action="/" method="GET">
 			<input type="submit" value="Home" />
 		</form>
-		<hr>
+		<hr id="databreak">
 		<h3>Current Beer List:</h3>
 		<br>
 		<ul>
