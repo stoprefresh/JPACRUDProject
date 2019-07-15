@@ -12,22 +12,18 @@
 </head>
 <body>
 <br>
-	
-	
 	<div id="main" class="main-body">
 	<h2>View and Search</h2>
 	<p>This is an application intended to record Beers and Breweries that I have found over the years</p>
 	<hr>
-	<hr>
-		<form action="getBeerAdd.do" method="GET">
-			<input type="submit" value="Add One to the List" />
+		<form action="getBeerIndex.do" method="GET">
+			<input type="submit" value="View Listed Beers" />
 		</form>
 		<hr>
-	<form action="getBeerAdd.do" method="GET">
-			<input type="submit" value="Add One to the List" />
+	<form action="getBreweryIndex.do" method="GET">
+			<input type="submit" value="View Listed Breweries" />
 		</form>
 		<hr>
-	
 	</div>
 </body>
 </html>

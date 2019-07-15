@@ -7,13 +7,12 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Favorite Beers</title>
+<title>Beers</title>
 <link rel="stylesheet" href="/css/beer_styles.css">
 </head>
 <body>
-<br>
+	<br>
 	<div id="main" class="main-body">
-	
 		<form action="getBeer.do" method="GET">
 			Beer ID: <input type="text" name="fid" /> <input type="submit"
 				value="Show Beer" />
@@ -23,9 +22,11 @@
 			<input type="submit" value="Add One to the List" />
 		</form>
 		<hr>
-		<h3>
-			<u>Current Beer List:</u>
-		</h3>
+		<form action="/" method="GET">
+			<input type="submit" value="Home" />
+		</form>
+		<hr>
+		<h3>Current Beer List:</h3>
 		<br>
 		<ul>
 			<c:forEach var="b" items="${beers}">

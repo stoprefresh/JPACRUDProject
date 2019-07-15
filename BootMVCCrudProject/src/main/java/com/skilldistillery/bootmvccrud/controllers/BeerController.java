@@ -10,22 +10,37 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.bootmvccrud.data.BeerDAO;
 import com.skilldistillery.jpacrudproject.entities.Beer;
+import com.skilldistillery.jpacrudproject.entities.Brewery;
 
 @Controller
 public class BeerController {
 
 	@Autowired
 	private BeerDAO dao;
-
-	@RequestMapping(path = "/")
-	public String index(Model model) {
+	
+	@RequestMapping(path="/")
+	public String splashPage(Model model){
+		return "splash";
+	}
+	
+	@RequestMapping(path = "getBeerIndex.do")
+	public String beerHome(Model model) {
 		
 		List<Beer> beers = dao.findAllBeer();
 		model.addAttribute("beers", beers);
 		
-		return "index";
+		return "beer/beerIndex";
 	}
-
+	
+	@RequestMapping(path = "getBreweryIndex.do")
+	public String breweryHome(Model model) {
+		
+		List<Brewery> breweries = dao.findAllBrewery();
+		model.addAttribute("breweries", breweries);
+		
+		return "beer/breweryIndex";
+	}
+	
 	@RequestMapping(path = "getBeer.do")
 	public String showBeer(@RequestParam("fid") Integer beerId, Model model) {
 		
@@ -51,15 +66,6 @@ public class BeerController {
 		return "beer/add";
 	}
 
-	@RequestMapping(path = "getHome.do")
-	public String home(Model model) {
-		
-		List<Beer> beers = dao.findAllBeer();
-		model.addAttribute("beers", beers);
-		
-		return "index";
-	}
-	
 	@RequestMapping(path = "getBeerDelete.do")
 	public String deleteBeer(@RequestParam("fid") Integer beerId, Model model) {
 		

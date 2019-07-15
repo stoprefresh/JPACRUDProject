@@ -22,9 +22,6 @@ public class BeerDAOJpaImpl implements BeerDAO {
 	public List<Beer> findAllBeer() {
 		String jpql = "SELECT b FROM Beer b";
 		List<Beer> beers = em.createQuery(jpql, Beer.class).getResultList();
-		for (Beer beer : beers) {
-			System.out.println(beer);
-		}
 		return beers;
 	}
 
@@ -62,7 +59,7 @@ public class BeerDAOJpaImpl implements BeerDAO {
 	
 	@Override
 	public List<Brewery> findAllBrewery() {
-		String jpql = "SELECT b FROM Beer b";
+		String jpql = "SELECT br FROM Brewery br";
 		List<Brewery> breweries = em.createQuery(jpql, Brewery.class).getResultList();
 		for (Brewery brewery : breweries) {
 			System.out.println(brewery);
