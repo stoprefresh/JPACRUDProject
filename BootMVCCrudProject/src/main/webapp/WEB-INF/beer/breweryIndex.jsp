@@ -15,7 +15,7 @@
 	<div id="main">
 	
 		<form action="getBrewery.do" method="GET">
-			Beer ID: <input type="text" name="fid" /> <input type="submit"
+			Brewery ID: <input type="text" name="fid" /> <input type="submit"
 				value="Show Brewery" />
 		</form>
 		<hr>
@@ -30,9 +30,13 @@
 		<h3>Current Breweries Archived:</h3>
 		<br>
 		<ul>
+		
 			<c:forEach var="br" items="${breweries}">
+			<c:if test="${br.name != 'Default'}">
 				<li><a id="displayed" href="getBrewery.do?fid=${br.id}">${br.name}</a></li>
+				</c:if>
 			</c:forEach>
+			
 		</ul>
 	</div>
 </body>

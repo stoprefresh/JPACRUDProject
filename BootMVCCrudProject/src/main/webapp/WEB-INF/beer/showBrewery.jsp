@@ -15,10 +15,7 @@
 		<h3>${brewery.city}, ${brewery.state}</h3>
 		<h3>${brewery.country}</h3>
 		<hr>
-		<h4>Est.</h4>
-		<h3>${brewery.yearEstablished}</h3>
-		<p>${brewery.notes}</p>
-		<br>
+		<h4>Est. ${brewery.yearEstablished}</h4>
 	</div>
 		<hr>
 	<form action="/" method="GET">
@@ -33,11 +30,10 @@
 		<input type="submit" value="Delete" />
 	</form>
 	<br>
+	<h4>Beers from this Brewery:</h4>
 		<ul>
-			<c:forEach var="br" items="${brewery}">
-				<c:forEach var="b" items="${beers}">
-				<li><a href="getBeer.do?fid=${b.id}">${b.name}</a></li>
-				</c:forEach>
+			<c:forEach var="br" items="${brewery.beers}">
+				<li><a href="getBeer.do?fid=${br.id}">${br.name}</a></li>
 			</c:forEach>
 		</ul>
 	</div>

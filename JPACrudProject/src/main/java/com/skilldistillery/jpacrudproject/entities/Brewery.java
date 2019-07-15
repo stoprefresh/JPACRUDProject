@@ -61,6 +61,14 @@ public class Brewery {
 		}
 	}
 	
+	public List<Beer> getBeers() {
+		return beers;
+	}
+
+	public void setBeers(List<Beer> beers) {
+		this.beers = beers;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -141,14 +149,6 @@ public class Brewery {
 
 	public void setWebsite(String website) {
 		this.website = website;
-	}
-
-	public List<Beer> getBeer() {
-		return beers;
-	}
-
-	public void setBeer(List<Beer> beer) {
-		this.beers = beer;
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 package com.skilldistillery.bootmvccrud.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,81 +24,113 @@ public class BeerController {
 	@RequestMapping(path = "getBeerIndex.do")
 	public String beerHome(Model model) {
 		
-		List<Beer> beers = dao.findAllBeer();
-		model.addAttribute("beers", beers);
-		
+		model.addAttribute("beers", dao.findAllBeer());
 		return "beer/beerIndex";
 	}
 	
 	@RequestMapping(path = "getBreweryIndex.do")
 	public String breweryHome(Model model) {
 		
-		List<Brewery> breweries = dao.findAllBrewery();
-		model.addAttribute("breweries", breweries);
-		
+		model.addAttribute("breweries", dao.findAllBrewery());
 		return "beer/breweryIndex";
 	}
 	
 	@RequestMapping(path = "getBeer.do")
 	public String showBeer(@RequestParam("fid") Integer beerId, Model model) {
 		
-		Beer beer = dao.findBeerById(beerId);
-		model.addAttribute("beer", beer);
-		
+		model.addAttribute("beer", dao.findBeerById(beerId));
 		return "beer/show";
 	}
 	
 	@RequestMapping(path = "getBrewery.do")
 	public String showBrewery(@RequestParam("fid") Integer breweryId, Model model) {
 		
-		Brewery brewery = dao.findBreweryById(breweryId);
-		model.addAttribute("brewery", brewery);
-		
+		model.addAttribute("brewery", dao.findBreweryById(breweryId));
 		return "beer/showBrewery";
 	}
 
 	@RequestMapping(path = "getAdded.do")
 	public String showNewBeer(@RequestParam("name") String name, @RequestParam("type") String type,
-			@RequestParam("brewery") String brewery, @RequestParam("description") String description,
+			 @RequestParam("description") String description, @RequestParam("brewery") int breweryId,
 			@RequestParam("notes") String notes, @RequestParam("abv") Double abv, Model model) {
-
-		model.addAttribute("beer", dao.addNewBeer(new Beer(abv, name, type, brewery, description, notes)));
+		
+		model.addAttribute("beer", dao.addNewBeer(new Beer(dao.findBreweryById(breweryId), abv, name, type, description, notes)));
 
 		return "beer/show";
 	}
+	
+	@RequestMapping(path = "getAddedBrewery.do")
+	public String showNewBrewery(@RequestParam("name") String name, @RequestParam("website") String website,
+			@RequestParam("city") String city, @RequestParam("state") String state,
+			@RequestParam("yearEstablished") String yearEstablished, @RequestParam("notes") String notes, 
+			@RequestParam("country") String country, @RequestParam("address") String address, Model model) {
 
+		model.addAttribute("brewery", dao.addNewBrewery(new Brewery(name, city, state, yearEstablished, country, address, notes, website)));
+
+		return "beer/showBrewery";
+	}
+
+	//TODO
 	@RequestMapping(path = "getBeerAdd.do")
 	public String addBeer(Model model) {
-		
+		model.addAttribute("breweries", dao.findAllBrewery());
 		return "beer/add";
+	}
+	
+	@RequestMapping(path = "getBreweryAdd.do")
+	public String addBrewery(Model model) {
+		return "beer/addBrewery";
 	}
 
 	@RequestMapping(path = "getBeerDelete.do")
 	public String deleteBeer(@RequestParam("fid") Integer beerId, Model model) {
 		
 		dao.deleteBeer(beerId);
-		List<Beer> beers = dao.findAllBeer();
-		model.addAttribute("beers", beers);
+		model.addAttribute("beers", dao.findAllBeer());
+		return "beer/beerIndex";
+	}
+	
+	@RequestMapping(path = "getBreweryDelete.do")
+	public String deleteBrewery(@RequestParam("fid") Integer breweryId, Model model) {
 		
-		return "index";
+		dao.deleteBrewery(breweryId);
+		
+		model.addAttribute("brewery", dao.findAllBrewery());
+		return "beer/breweryIndex";
 	}
 
 	@RequestMapping(path = "getBeerUpdate.do")
 	public String updateBeer(@RequestParam("fid") Integer beerId, Model model) {
-		
 		model.addAttribute("beer", dao.findBeerById(beerId));
-
+		model.addAttribute("breweries", dao.findAllBrewery());
 		return "beer/update"; 
+	}
+	
+	@RequestMapping(path = "getBreweryUpdate.do")
+	public String updateBrewery(@RequestParam("fid") Integer breweryId, Model model) {
+		model.addAttribute("brewery", dao.findBreweryById(breweryId));
 		
+		return "beer/updateBrewery"; 
 	}
 
 	@RequestMapping(path = "getUpdated.do")
 	public String displayUpdated(@RequestParam("fid") Integer beerId, @RequestParam("name") String name, @RequestParam("type") String type,
-			@RequestParam("brewery") String brewery, @RequestParam("description") String description,
+			 @RequestParam("description") String description, @RequestParam("brewery") int breweryId,
 			@RequestParam("notes") String notes, @RequestParam("abv") Double abv, Model model) {
 		
-		model.addAttribute("beer", dao.updateBeer(beerId, new Beer(abv, name, type, brewery, description, notes)));
+		model.addAttribute("beer", dao.updateBeer(beerId, new Beer(dao.findBreweryById(breweryId), abv, name, type, description, notes)));
 
 		return "beer/show";
+	}
+	
+	@RequestMapping(path = "getBreweryUpdated.do")
+	public String displayUpdatedBrewery(@RequestParam("fid") Integer breweryId, @RequestParam("name") String name, @RequestParam("website") String website,
+			@RequestParam("city") String city, @RequestParam("state") String state, @RequestParam("beer") Beer beer,
+			@RequestParam("yearEstablished") String yearEstablished, @RequestParam("notes") String notes, 
+			@RequestParam("country") String country, @RequestParam("address") String address, Model model) {
+		
+		model.addAttribute("brewery", dao.updateBrewery(breweryId, new Brewery(name, city, state, yearEstablished, country, address, notes, website)));
+
+		return "beer/showBrewery";
 	}
 }

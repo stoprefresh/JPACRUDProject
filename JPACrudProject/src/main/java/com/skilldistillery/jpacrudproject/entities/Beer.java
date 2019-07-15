@@ -25,10 +25,11 @@ public class Beer {
 	
 	public Beer() {}
 
-	public Beer(double abv, String ...info) {
-		setAbv(abv);
+	public Beer(Brewery brewery, Double abv, String ...info) {
+		setBrewery(brewery);
 		setName(info[0]);
 		setType(info[1]);
+		if(abv != null) {setAbv(abv);}
 		if(info[2] != null){setDescription(info[2]);}
 		if(info[3] != null){setNotes(info[3]);}
 	}
